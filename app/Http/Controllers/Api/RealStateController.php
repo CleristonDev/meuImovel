@@ -23,6 +23,13 @@ class RealStateController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        try{
+            return response ()->json ($request->all(),200);
+        } catch (\Exception $e ) {
+            return response ()->json (['error' => $e->getMessage()]);
+        }
+       
         
     }
 }
